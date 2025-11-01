@@ -1,5 +1,4 @@
 ---
-
 title: "Common Mistakes in Web Development and How to Avoid Them"
 categories: [Frontend]
 tags: [Web Development, Best Practices, Common Mistakes, Performance]
@@ -44,3 +43,4 @@ Skipping testing or relying only on one browser can lead to unexpected bugs.
 - **Tip:** Test on multiple browsers, devices, and screen sizes. Consider automated tests for critical functionality.
 
 By being aware of these common mistakes, you can build websites that are fast, accessible, maintainable, and professional. A thoughtful approach during development saves time in the long run and ensures a better experience for all users.
+
