@@ -14,13 +14,14 @@ Using different fonts, colors, and spacing throughout the site creates a messy a
  A website looks unprofessional and confuses users.  
 Stick toa design system or st
 yle guide, and consider using CSS v
-
+<br>
 
 ariables for consistency.
  Neglecting Accessibility
 Websites must be usable for people with disabilities. Missing alt text, poor color contrast, or inaccessible forms exclude a large audience.  
  Limits reach and can even lead to legal issues.  
 ollow WCAG guidelines and test accessibility with tools like Lighthouse or aXe.
+
 
 
 
