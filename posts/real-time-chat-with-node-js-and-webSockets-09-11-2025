@@ -1,3 +1,4 @@
+**Real Time Chat With Node.js And WebSockets**
 If you have ever used a chat app, multiplayer game, or live notification system, you’ve experienced the magic of real-time communication.
 Traditionally, web apps relied on HTTP requests, where the client asks the server for data and waits for a response.
 This works fine for static websites, but it’s too slow and inefficient for real-time features.
