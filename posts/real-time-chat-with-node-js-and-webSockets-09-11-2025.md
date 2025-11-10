@@ -1,4 +1,3 @@
-![Real Time Chat With Node.js And WebSockets](../postImages/real-time-image-chat-with-node-js-and-webSockets-09-11-2025.webp)
 
 # Real Time Chat With Node.js And WebSockets
 
