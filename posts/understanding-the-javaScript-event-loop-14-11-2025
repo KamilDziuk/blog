@@ -1,0 +1,103 @@
+# Understanding the JavaScript Event Loop
+
+*An accessible explainer for developers — what the event loop is, how it works, and why it matters.*
+
+---
+
+## What is the Event Loop?
+
+The JavaScript **event loop** is the mechanism that lets JavaScript perform non-blocking I/O and concurrency on a single thread. It coordinates the *call stack*, *task queues*, and the runtime (browser or Node.js) to schedule and run pieces of code, ensuring responsive UIs and efficient I/O.
+
+In short: JavaScript runs one piece of code at a time (single-threaded), but the event loop and task queues let it handle asynchronous operations without blocking.
+
+---
+
+## The building blocks
+
+* **Call stack** — where functions are executed. When a function runs, it’s pushed onto the stack; when it returns, it’s popped off.
+
+* **Web APIs / Runtime** — browser or Node provide timers, network requests, DOM events, etc. These run outside the JS stack and, when finished, place callbacks into queues.
+
+* **Task queues (macrotasks)** — e.g. `setTimeout`, `setInterval`, I/O callbacks. Tasks wait here until the event loop pulls them onto the stack.
+
+* **Microtask queue** — e.g. `Promise` callbacks (`.then`), `queueMicrotask`, and `process.nextTick` (Node). Microtasks run after the current execution and before the next macrotask.
+
+* **Event loop** — repeatedly checks the call stack and queues, moves tasks from queues to the stack, and manages microtasks/macro tasks ordering.
+
+---
+
+## A simple timeline (what happens when code runs)
+
+1. Global script executes on the call stack.
+2. When an async API (like `setTimeout` or fetch) is called, the runtime handles it and registers a callback.
+3. When the runtime finishes the async work, the callback goes into a queue (macrotask or microtask depending on API).
+4. After the stack is empty, the event loop:
+
+   * runs **all microtasks** (until the microtask queue is empty),
+   * then picks the next macrotask and runs it,
+   * repeats.
+
+This ordering is why promises resolve *before* `setTimeout(..., 0)` callbacks even if the timeout is zero.
+
+---
+
+## Example — order of logs
+
+```js
+console.log('script start');
+
+setTimeout(() => console.log('timeout 1'), 0);
+
+Promise.resolve()
+  .then(() => console.log('promise 1'))
+  .then(() => console.log('promise 2'));
+
+console.log('script end');
+```
+
+**Expected output:**
+
+```
+script start
+script end
+promise 1
+promise 2
+timeout 1
+```
+
+Explanation: the synchronous logs run first. Promise callbacks are microtasks, so they run after the current stack finishes but before macrotasks like `setTimeout`.
+
+---
+
+## Visual/interactive example
+
+For a visual, interactive walkthrough of call stack, tasks and microtasks, see the *Loupe* tool (interactive event-loop visualizer). It lets you paste small code snippets and watch how tasks and microtasks move through the runtime. Example:
+
+[Loupe — Visualizing the event loop (example by Philip Roberts)](http://latentflip.com/loupe/?code=ZnVuY3Rpb24gcHJpbnRIZWxsbygpIHsNCiAgICBjb25zb2xlLmxvZygnSGVsbG8gZnJvbSBiYXonKTsNCn0NCg0KZnVuY3Rpb24gYmF6KCkgew0KICAgIHNldFRpbWVvdXQocHJpbnRIZWxsbywgNTAwMCk7DQp9DQoNCmZ1bmN0aW9uIGZvbygpIHsNCgAgICBjb25zb2xlLmxvZygiZm9vOiBiZWZvcmUgYmF6Iik7DQogICAgYmF6KCk7DQogICAgY29uc29sZS5sb2coImZvbzogYWZ0ZXIgYmF6Iik7DQp9DQoNCmZvbygpOw%3D%3D!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D)
+
+*(This link opens an embedded Loupe example that demonstrates microtask vs macrotask behavior.)*
+
+---
+
+## Why this matters
+
+* **Avoid UI jank**: Long-running synchronous code blocks the call stack and freezes UI. Use async APIs to keep the thread free.
+* **Predictable ordering**: Knowing microtask vs macrotask ordering helps avoid surprising behavior when interleaving promises, timers, and I/O.
+* **Performance tuning**: Batching DOM updates and minimizing synchronous work improves responsiveness.
+
+---
+
+## Practical tips
+
+* Use `Promise` / `async`-`await` for readable async logic and to schedule microtasks.
+* Use `setTimeout(..., 0)` or `postMessage` when you intentionally want to defer work to the next macrotask.
+* Prefer `queueMicrotask` for small follow-up work that must run before the next macrotask.
+* Break long CPU-bound tasks into chunks and yield (via timers or requestAnimationFrame) to keep UI responsive.
+
+---
+
+## Further reading
+
+* Philip Roberts — *What the heck is the event loop anyway?* (talk & Loupe visualizer)
+* MDN — Event loop documentation and examples
+
