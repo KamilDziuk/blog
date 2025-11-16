@@ -2,7 +2,7 @@
 # Real Time Chat With Node.js And WebSockets
 2025-11-09
 
-**Tagi:** `front-end` `backend` `nodejs`
+**Tags:** `front-end` `backend` `nodejs`
 
 Real-time communication has become a crucial feature in modern web applications — from chat apps and live notifications to multiplayer games and collaborative tools. In this post, we’ll explore how to implement WebSockets in **Node.js**, and we’ll take a look at a practical example using my  project:
  [Live Chat on GitHub](https://github.com/KamilDziuk/live-chat)
