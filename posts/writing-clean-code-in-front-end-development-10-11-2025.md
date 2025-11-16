@@ -2,7 +2,7 @@
 # Writing Clean Code in Front-End Development
 2025-11-10
 
-**Tagi:** `clean-code` `software-development` `front-end`
+**Tags:** `clean-code` `software-development` `front-end`
 
 In front-end development, **clean code** isn’t just about making your code look nice — it’s about writing software that’s **readable, maintainable, and scalable**.  
 When working on user interfaces, even small projects can become messy quickly if you don’t follow solid coding practices.
