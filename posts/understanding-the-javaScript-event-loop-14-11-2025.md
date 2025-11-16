@@ -1,15 +1,8 @@
----
-title: "Understanding the JavaScript Event Loop"
-date: 2025-11-14
-tags:
-  - javascript
-  - event-loop
-  - front-end
-  - asynchronous
-  - promises
-  - nodejs
----
+
 # Understanding the JavaScript Event Loop
+2025-11-14
+
+**Tagi:** `javascript` `event-loop` `front-end` `asynchronous` `promises` `nodejs`
 
 *An accessible explainer for developers — what the event loop is, how it works, and why it matters.*
 
