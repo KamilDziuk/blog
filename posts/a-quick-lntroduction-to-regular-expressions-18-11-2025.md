@@ -1,5 +1,6 @@
 
 # A Quick Introduction to Regular Expressions (Regex)
+2025-11-18
 
 Regular Expressions — commonly called *regex* — are powerful patterns used to search, match, and manipulate text. They let you describe complex string conditions with compact syntax.
 
