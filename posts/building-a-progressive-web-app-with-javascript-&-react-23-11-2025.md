@@ -142,4 +142,5 @@ Building a PWA with **JavaScript and React** is straightforward thanks to the bu
 ##  Sources
 
 [Create React App](https://create-react-app.dev/docs/making-a-progressive-web-app/)
+
 [Developer Mozilla](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps)
