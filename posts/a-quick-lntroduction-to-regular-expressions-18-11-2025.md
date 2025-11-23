@@ -46,4 +46,6 @@ Regular Expressions — commonly called *regex* — are powerful patterns used t
 * Test your regex using tools like regex101.
 * Start simple — make it work, then refine.
 
+##  Sources
 
+[Developer Mozilla](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions)
