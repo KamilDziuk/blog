@@ -68,8 +68,29 @@ try {
 ````
 - In the PDO example above we have also specified a database (myDB). PDO require a valid database to connect to. If no database is specified, an exception is thrown. 
 - A great benefit of PDO is that it has an exception class to handle any problems that may occur in our database queries. If an exception is thrown within the try{ } block, the script stops executing and flows directly to the first catch(){ } block.
-  
----
+
+### Close the Connection
+
+The connection will be closed automatically when the script ends. To close the connection before, use the following
+
+##### MySQLi Object-Oriented:
+
+```php
+$conn->close();
+````
+
+##### MySQLi Procedural:
+
+```php
+mysqli_close($conn);
+````
+
+##### PDO:
+
+```php
+$conn = null;
+````
+
 
 
 ### Example SQL Query
