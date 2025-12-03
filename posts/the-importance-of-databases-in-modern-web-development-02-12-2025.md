@@ -48,6 +48,30 @@ It stores data in tables with predefined schemas — perfect for systems where r
 - Inventory management  
 - CMS platforms (WordPress uses MySQL)
 
+### Example a Connection to MySQL (PDO)
+
+```php
+<?php
+$servername = "localhost";
+$username = "username";
+$password = "password";
+
+try {
+  $conn = new PDO("mysql:host=$servername;dbname=myDB", $username, $password);
+  // set the PDO error mode to exception
+  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  echo "Connected successfully";
+} catch(PDOException $e) {
+  echo "Connection failed: " . $e->getMessage();
+}
+?>
+````
+- In the PDO example above we have also specified a database (myDB). PDO require a valid database to connect to. If no database is specified, an exception is thrown. 
+- A great benefit of PDO is that it has an exception class to handle any problems that may occur in our database queries. If an exception is thrown within the try{ } block, the script stops executing and flows directly to the first catch(){ } block.
+  
+---
+
+
 ### Example SQL Query
 
 ```sql
@@ -164,9 +188,14 @@ The best developers know not just how to use databases — but when to choose th
 - MySQL Documentation  
   https://dev.mysql.com/doc/
 
+- W3 schools 
+  https://www.w3schools.com/php/php_mysql_connect.asp
+  
 - MongoDB Documentation  
   https://www.mongodb.com/docs/
 
 - MongoDB University  
   https://learn.mongodb.com/
+
+  
   
