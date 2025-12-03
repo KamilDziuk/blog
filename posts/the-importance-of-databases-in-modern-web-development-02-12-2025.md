@@ -188,7 +188,8 @@ The best developers know not just how to use databases — but when to choose th
 - MySQL Documentation  
   https://dev.mysql.com/doc/
 
-- W3 schools 
+- W3 Schools
+ 
   https://www.w3schools.com/php/php_mysql_connect.asp
   
 - MongoDB Documentation  
