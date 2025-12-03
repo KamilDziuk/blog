@@ -152,7 +152,29 @@ export default async function mongoDB() {
 ### Example MongoDB Query (Node.js)
 
 ```js
-db.collection("users").findOne({ email: "john@example.com" });
+show db // shows all databases  
+use myDatabase // switches to or creates a database  
+db.createCollection("users") // creates a new collection  
+show collections // lists all collections in the database  
+db.users.insertOne({ name: "John", age: 30 }) // inserts a single document  
+db.users.insertMany([{ name: "Anna" }, { name: "Mark" }]) // inserts multiple documents  
+db.users.find() // returns all documents in the collection  
+db.users.find({ name: "John" }) // finds documents matching a specific condition  
+db.users.find({}, { name: 1, age: 1 }) // selects specific fields  
+db.users.updateOne({ name: "John" }, { $set: { age: 31 } }) // updates one matching document  
+db.users.updateMany({}, { $set: { active: true } }) // updates all documents  
+db.users.deleteOne({ name: "John" }) // deletes the first matching document  
+db.users.deleteMany({ active: false }) // deletes all matching documents  
+db.users.countDocuments() // counts all documents in the collection  
+db.users.countDocuments({ age: { $gt: 25 } }) // counts documents matching a filter  
+db.users.find().sort({ age: 1 }) // sorts results in ascending order  
+db.users.find().limit(5) // limits the number of returned documents  
+db.users.find({ age: { $gt: 20, $lt: 40 } }) // query with comparison operators  
+db.users.find({ hobbies: { $in: ["reading", "sports"] } }) // finds documents where hobbies include specific values  
+db.users.aggregate([{ $group: { _id: "$city", count: { $sum: 1 } } }]) // groups documents by city and counts them  
+db.users.createIndex({ email: 1 }) // creates an index on a field  
+db.users.getIndexes() // shows all indexes in the collection
+
 ```
 
 ---
