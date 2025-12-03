@@ -95,7 +95,18 @@ $conn = null;
 ### Example SQL Query
 
 ```sql
-SELECT * FROM users WHERE email = 'john@example.com';
+DROP TABLE info; // deleting a table;
+INSERT INTO info( user_id, name ) VALUES (1,"TEST","Test","test"); // adding values ​​to columns. The order matters.
+UPDATE info SET userName = "Tom" WHERE user_id = 1; // change value after id().
+UPDATE user SET name = "Tom", curse = "CSS"  WHERE user_id = 2; // changing multiple lines in po id.
+DROP TABLE info; // deleting a table
+CREATE TABLE info(user_id int, name varchar(40)); // creating a table with column names and types
+CREATE DATABASE test; // creating a new database
+SELECT * FROM actor; // select all from actor table.
+SELECT first_name, last_name FROM actor; // select elements from the actor table.
+DESCRIBE actor; // describe actor tables
+SELECT first_name, last_name FROM actor ORDER BY last_name; // sort arrays alphabetically by last_name
+SELECT first_name, last_name FROM actor ORDER BY last_name DESC; // sort reverse alphabet arrays by last_name
 ````
 
 ---
