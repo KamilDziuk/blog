@@ -92,7 +92,6 @@ $conn = null;
 ````
 
 
-
 ### Example SQL Query
 
 ```sql
@@ -121,6 +120,23 @@ It is schema-flexible, scalable, and ideal for applications that evolve quickly.
 * Content platforms
 * IoT and event-based data
 * Rapid prototyping
+
+### Connect to a Single MongoDB Instance
+
+```js
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+dotenv.config();
+
+export default async function mongoDB() {
+  await mongoose
+    .connect(process.env.MONGO_URI)
+    .then(console.log("Connect!"))
+    .catch((error) => {
+      console.error("error" + error.message);
+    });
+}
+```
 
 ### Example MongoDB Query (Node.js)
 
