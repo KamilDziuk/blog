@@ -2,7 +2,7 @@
 # Web Development in 2025: Modern JavaScript Features and Evolving Best Practices
 2025-12-15
 
-**Tags:** `es2025` `ecmascript`  `web-development` 
+**Tags:** `es2025` `es2024` `ecmascript`  `web-development` 
 
 The year 2025 marks another important step in the evolution of web development.  
 JavaScript continues to mature — not just as a scripting language, but as a robust, expressive, and highly optimized platform for building complex applications.
@@ -223,6 +223,143 @@ Instead of adding complexity, the ecosystem focuses on **making the right thing 
 
 ---
 
+# Bonus
+## ECMAScript 2024 (ES15) — What’s New (Quick Overview with Examples)
+
+ECMAScript 2024 introduces several practical improvements focused on **immutability, better async handling, Unicode safety, and cleaner data transformations**. Below is a concise list of all major additions with short explanations and code examples.
+
+---
+
+## Non-Mutating Array Methods
+
+New array methods that **do not modify the original array**, promoting immutable patterns.
+
+### New methods:
+- `toSorted()`
+- `toReversed()`
+- `toSpliced()`
+- `with(index, value)`
+
+```js
+const arr = [3, 1, 2];
+
+const sorted = arr.toSorted();
+console.log(arr);    // [3, 1, 2]
+console.log(sorted); // [1, 2, 3]
+ Object.groupBy() and Map.groupBy()
+```
+
+Groups items based on a callback function.
+
+```js
+
+const users = [
+  { name: "Alice", role: "admin" },
+  { name: "Bob", role: "user" }
+];
+
+const grouped = Object.groupBy(users, u => u.role);
+Result:
+
+
+{
+  admin: [{ name: "Alice", role: "admin" }],
+  user: [{ name: "Bob", role: "user" }]
+}
+
+Promise.withResolvers()
+```
+Creates a promise and exposes its resolve and reject functions.
+
+```js
+const { promise, resolve } = Promise.withResolvers();
+
+setTimeout(() => resolve("Done"), 1000);
+
+await promise; // "Done"
+```
+String Unicode Safety Methods
+Helps detect and fix invalid Unicode strings.
+
+New methods:
+```js
+isWellFormed()
+
+toWellFormed()
+
+const text = "�";
+
+text.isWellFormed();      // false
+text.toWellFormed();      // "�"
+RegExp /v (Unicode Sets) Flag
+```
+
+Adds advanced Unicode support to regular expressions.
+```js
+const regex = /\p{Script=Greek}/v;
+
+regex.test("α"); // true
+Resizable & Transferable ArrayBuffer
+```
+ArrayBuffers can now be resized after creation.
+
+```js
+const buffer = new ArrayBuffer(8, { maxByteLength: 16 });
+buffer.resize(12);
+Useful for binary data, streaming, and performance-critical apps.
+
+Atomics.waitAsync()
+```
+Allows non-blocking waits on shared memory.
+
+```js
+await Atomics.waitAsync(sharedArray, 0, 0).value;
+```
+Used in advanced concurrent and low-level systems.
+
+ Top-Level await (Stabilized)
+Use await directly in ES modules.
+
+```js
+const data = await fetch("/api/data").then(res => res.json());
+```
+No need for wrapping in async functions.
+
+ Decorators (Stage-3 / Near-Final)
+Adds native support for decorating classes and methods.
+```js
+function log(target, key, descriptor) {
+  const original = descriptor.value;
+  descriptor.value = function (...args) {
+    console.log(key, args);
+    return original.apply(this, args);
+  };
+}
+
+class User {
+  @log
+  login(name) {
+    return `Hello ${name}`;
+  }
+}
+```
+ Records & Tuples (Immutable Data Types)
+New deeply immutable primitives.
+
+```js
+const user = #{ name: "Alice", age: 30 };
+const nums = #[1, 2, 3];
+```
+Cannot be mutated — ideal for state management.
+
+Temporal API (Further Progress)
+Modern replacement for Date.
+```js
+const now = Temporal.Now.plainDateISO();
+```
+Handles time zones, calendars, and date math correctly.
+
+
 ## Conclusion
 
 2025 is not about rewriting JavaScript — it’s about **polishing it**.
@@ -233,6 +370,19 @@ Modern JavaScript is:
 * More predictable
 * More powerful
 * More scalable
+
+ES2024 focuses on:
+
+Immutability
+
+Safer strings and Unicode
+
+Better async control
+
+Cleaner data transformations
+
+More predictable state management
+
 
 Developers who embrace these modern methods and patterns write code that is easier to maintain, easier to test, and ready for the future of web development.
 
