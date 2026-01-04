@@ -95,5 +95,6 @@ Design becomes **human-centric**:
 
 ## Sources
 
-(webpeak)[https://webpeak.org/blog/web-development-trends/?utm_source=chatgpt.com]
-(davydovconsulting)[https://www.davydovconsulting.com/post/web-development-trends-2026-what-shaping-the-future-of-the-web]
+[webpeak](https://webpeak.org/blog/web-development-trends/?utm_source=chatgpt.com)
+
+[davydovconsulting](https://www.davydovconsulting.com/post/web-development-trends-2026-what-shaping-the-future-of-the-web)
