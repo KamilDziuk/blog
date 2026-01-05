@@ -225,7 +225,7 @@ An algorithm that calls itself.
 * Parsing JSON
 * Rendering nested menus
 
-⚠️ Beware of stack overflows and performance issues.
+Beware of stack overflows and performance issues.
 
 ---
 
