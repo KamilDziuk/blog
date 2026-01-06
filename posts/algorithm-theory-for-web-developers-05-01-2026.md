@@ -3,7 +3,7 @@
 
 Tags: web-development algorithms
 
-> A practical, no‑nonsense guide to algorithms and data structures in modern web development.
+A practical, no‑nonsense guide to algorithms and data structures in modern web development.
 
 ---
 
