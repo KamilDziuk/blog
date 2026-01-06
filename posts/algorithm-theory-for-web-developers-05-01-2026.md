@@ -98,6 +98,26 @@ Key–value storage for fast lookups.
 
 ---
 
+### Best Practice: Quickly Checking Data Ownership
+
+```js
+
+const activeUserIds = new Set([1, 3, 5, 7]);
+
+// Scalable and Readable Function
+function isUserActive(userId) {
+return activeUserIds.has(userId);
+}
+```
+
+**Why is this a good practice?**
+
+* constant time complexity **O(1)**
+* readable code
+* scales well with large data
+  
+---
+
 ### Sets
 
 * Store unique values
