@@ -354,4 +354,8 @@ Great web developers:
 
 Mastering algorithms makes your applications faster, cheaper, and more reliable.
 
+##  Sources
 
+[w3schools](https://www.w3schools.com/dsa/dsa_intro.php)
+
+[lemonlight](https://www.lemonlight.com/blog/the-what-and-why-of-algorithms/)
