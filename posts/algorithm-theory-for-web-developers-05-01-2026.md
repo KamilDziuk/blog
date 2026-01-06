@@ -1,7 +1,7 @@
 # Algorithm Theory for Web Developers
 2026-01-05
 
-Tags: web-development algorithms
+**Tags:** `pwa` `algorithms`
 
 A practical, no‑nonsense guide to algorithms and data structures in modern web development.
 
