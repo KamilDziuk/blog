@@ -224,5 +224,17 @@ app.post("/api/users", (req, res) => {
 
 REST APIs remain the foundation of modern web applications. They are simple, scalable, and widely supported. Mastering REST APIs and JavaScript integration is a must-have skill for every web developer.
 
+##  Sources
+
+[amazon](https://aws.amazon.com/what-is/api/)
+
+[redhat](https://www.redhat.com/en/topics/api/what-is-a-rest-api)
+
+[postman](https://blog.postman.com/rest-api-examples/)
+
+
+
+
+
 
 
