@@ -191,13 +191,11 @@ Tests catch bugs **before** users do.
 Debugging is a process, not a one-time task. The better your tools and habits, the faster you’ll identify issues and build stable, predictable JavaScript applications.
 
 
-
 ## Sources
 
-* MDN Web Docs – Debugging JavaScript
-  [https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_went_wrong](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_went_wrong)
+Debugging JavaScript - [developer mozilla](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_went_wrong)
 
-* MDN Web Docs – Error Handling
-  [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling]
+Error Handling - [developer mozilla](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling)
+  
 
 
