@@ -138,3 +138,8 @@ Regular meetings aimed at:
 Agile techniques enable efficient management of web development projects through iterative delivery, continuous testing, and regular team communication. Methodologies such as Scrum and Kanban are now industry standards in modern web development.
 
 
+##  Sources
+
+[agilealliance](https://agilealliance.org/agile101/)
+
+
