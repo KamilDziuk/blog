@@ -2,7 +2,7 @@ name: Update views.json
 
 on:
   push:
-    branches: [ main ]    
+    branches: [ main ]
   schedule:
     - cron: "0 6 * * *"
   workflow_dispatch:
@@ -12,9 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-
       - uses: actions/checkout@v4
-
 
       - name: Fetch traffic
         run: |
@@ -23,7 +21,6 @@ jobs:
                https://api.github.com/repos/KamilDziuk/blog/traffic/views \
                > views.json
 
- 
       - name: Commit if changed
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
@@ -32,4 +29,8 @@ jobs:
           git config user.email "actions@github.com"
           git add views.json
           git commit -m "Update views" || echo "No changes"
-          git push https://x-access-token:${GH_TOKEN}@github.com/KamilDziuk/blog.git
+
+  
+          git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/KamilDziuk/blog.git
+          
+          git push origin main
