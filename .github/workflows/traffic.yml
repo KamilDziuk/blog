@@ -1,0 +1,28 @@
+name: Update views.json
+
+on:
+  schedule:
+    - cron: "0 6 * * *"   # codziennie o 6:00
+  workflow_dispatch:     # pozwala uruchomić ręcznie
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch traffic
+        run: |
+          curl -H "Authorization: Bearer ${{ secrets.GH_TOKEN }}" \
+               -H "Accept: application/vnd.github+json" \
+               https://api.github.com/repos/KamilDziuk/blog/traffic/views \
+               > views.json
+
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add views.json
+          git commit -m "Update views" || echo "No changes"
+          git push
