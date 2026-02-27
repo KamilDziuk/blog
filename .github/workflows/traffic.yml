@@ -28,3 +28,5 @@ jobs:
           git add views.json
           git commit -m "Update views" || echo "No changes"
           git push https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/KamilDziuk/blog.git
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
