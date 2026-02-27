@@ -1,10 +1,11 @@
 name: Update views.json
 
 on:
+  push:
+    branches: [ main ]
   schedule:
-    - cron: "0 6 * * *"   # codziennie o 6:00
-  workflow_dispatch:     # pozwala uruchomić ręcznie
-
+    - cron: "0 6 * * *"
+  workflow_dispatch:
 jobs:
   update:
     runs-on: ubuntu-latest
