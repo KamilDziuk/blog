@@ -4,7 +4,7 @@ on:
   push:
     branches: [ main ]
   schedule:
-    - cron: "0 6 * * *"
+    - cron: "0 6 * * *"  # codziennie o 6:00
   workflow_dispatch:
 
 jobs:
@@ -12,23 +12,28 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # Checkout repo
       - uses: actions/checkout@v4
 
+      # Fetch traffic data
       - name: Fetch traffic
         run: |
-          curl -H "Authorization: Bearer ${{ secrets.GH_TOKEN }}" \
+          curl -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
                -H "Accept: application/vnd.github+json" \
                https://api.github.com/repos/KamilDziuk/blog/traffic/views \
                > views.json
 
-      - name: Commit and push changes
+      # Commit and push changes
+      - name: Commit and push
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
           git add views.json
-          git commit -m "Update views" || echo "No changes"
+          git commit -m "Update views" || echo "No changes to commit"
+          git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/KamilDziuk/blog.git
+          git push origin main
           
          
           git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/KamilDziuk/blog.git
