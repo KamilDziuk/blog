@@ -275,6 +275,50 @@ Access-Control-Allow-Origin: http://localhost:3000
 
 ---
 
+# Example from project
+
+```js
+export default async function handler(req, res) {
+
+  res.setHeader("Access-Control-Allow-Origin", "https://kamildziuk.github.io");
+  res.setHeader("Access-Control-Allow-Methods", "GET");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+
+  if (req.method === "OPTIONS") {
+    return res.status(200).end();
+  }
+
+  try {
+    const response = await fetch(
+      "https://api.github.com/repos/KamilDziuk/blog/traffic/views",
+      {
+        headers: {
+          Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+          Accept: "application/vnd.github+json",
+        },
+      }
+    );
+
+    const data = await response.json();
+
+    res.setHeader(
+      "Cache-Control",
+      "s-maxage=3600, stale-while-revalidate"
+    );
+
+    return res.status(200).json({
+      count: data.count,
+      uniques: data.uniques,
+    });
+
+  } catch (error) {
+    return res.status(500).json({ error: "Server error" });
+  }
+}
+```
+
+---
+
 # Summary
 
 Cross-origin rules exist to protect users from malicious websites by restricting access between different domains.
