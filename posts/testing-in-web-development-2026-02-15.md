@@ -29,8 +29,31 @@ In this article, I explain types of tests and show a practical example of settin
 * Test individual functions or modules in isolation.
 * Fast and independent of database or network.
 * The foundation of a testing strategy.
+```js
+
+function add(a, b) {
+  return a + b;
+}
+
+test("adds two numbers", () => {
+  expect(add(2, 3)).toBe(5);
+});
+
+```
 
 ### 2. Integration Tests
+
+```js
+
+test("creates a user in the database", async () => {
+  const res = await request(app)
+    .post("/users")
+    .send({ name: "Jan" });
+
+  expect(res.statusCode).toBe(201);
+});
+
+```
 
 * Verify how modules work together, e.g.:
 
