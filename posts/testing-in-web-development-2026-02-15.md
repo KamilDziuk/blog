@@ -45,6 +45,22 @@ In this article, I explain types of tests and show a practical example of settin
 
 ---
 
+## Getting Started
+
+```bash
+npm install -D vitest
+```
+
+---
+
+#### Add scripts in  package.json
+
+```json
+  "scripts": {
+    "test": "vitest"
+  }
+```
+
 ## Project Setup (Jest + ES Modules)
 
 ### package.json
