@@ -176,7 +176,6 @@ This workflow:
 
 In my projects, I use a combination of platforms:
 
-* For **backend projects**, I mostly use **Render**. It allows fast deployment of Node.js, Python, and containerized apps, with built-in database support and automatic GitHub deployment.
 * For **frontend projects**, I mainly use **Vercel**. It is optimized for modern frontend frameworks (Next.js, React, Vue), provides global CDN, and automatic preview deployments for pull requests.
 
 This combination helps separate frontend and backend workflows and choose the platform best suited for the project type.
