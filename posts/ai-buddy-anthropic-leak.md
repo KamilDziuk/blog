@@ -27,6 +27,31 @@ This was not a typical chatbot. The AI buddy was designed to:
 - remember user context over time  
 - provide more personalized and human-like interactions  
 
+
+## Commands
+
+```
+# First-time hatch with animation
+/buddy
+ 
+# Pet your buddy (floating heart animation, 2.5 seconds)
+/buddy pet
+ 
+# View stat card with sprite, stats, rarity
+/buddy card
+ 
+# Silence speech bubbles
+/buddy mute
+ 
+# Restore speech
+/buddy unmute
+ 
+# Hide buddy entirely
+/buddy off
+ 
+# Talk to your buddy directly by using its name
+```
+
 ---
 
 ## How Did It Work?
@@ -130,3 +155,8 @@ This was not just a code leak — it was a glimpse into the future of AI.
 [Medium](https://medium.com/techx-official/how-anthropic-accidentally-open-sourced-their-crown-jewel-512-000-line-oops-ae66e8e7e959)
 
 [Fireship](https://www.youtube.com/watch?v=mBHRPeg8zPU)
+
+[Claudefa - Mechanics](https://claudefa.st/blog/guide/mechanics/claude-buddy)
+
+
+
