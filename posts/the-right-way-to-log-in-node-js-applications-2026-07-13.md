@@ -66,3 +66,11 @@ In AWS Lambda, there is no need to write logs to files. Pino logs are automatica
 ## Conclusion
 
 Replacing `console.log()` with Pino is a simple improvement that makes your application easier to monitor, debug, and maintain. With structured logs and multiple log levels, your backend becomes more production-ready.
+
+---
+
+### Sources / References
+
+[Pino Logger Tutorial: A Complete Guide for Node.js](https://www.dash0.com/guides/logging-in-node-js-with-pino)
+
+
