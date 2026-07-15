@@ -2,11 +2,11 @@
 # Understanding APIs and REST API
 2026-01-11
 
-**Tags:**  `REST API` 
+**Tags:**  `REST API` `API` `Web API` `Node.js` `Express.js` `Fetch API` `Fetch API` `REST Architecture` `HTTP Methods` `Client-Server Architecture` `HTTP` `JSON`      
 
 ## Introduction
 
-APIs (Application Programming Interfaces) are the backbone of modern web development. Almost every application today — from simple websites to complex SaaS platforms — relies on APIs to communicate between systems.
+APIs (Application Programming Interfaces) are the backbone of modern web development. Almost every application today - from simple websites to complex SaaS platforms - relies on APIs to communicate between systems.
 
 APIs are more important than ever due to:
 - cloud-native architectures
@@ -29,7 +29,7 @@ Think of an API as a waiter in a restaurant:
 - The kitchen prepares the food
 - The waiter brings it back to you
 
-You don’t need to know how the kitchen works — only how to order.
+You don’t need to know how the kitchen works - only how to order.
 
 ---
 
@@ -189,14 +189,37 @@ app.post("/api/users", (req, res) => {
 
 ## REST API Status Codes
 
-| Code | Meaning      |
-| ---- | ------------ |
-| 200  | OK           |
-| 201  | Created      |
-| 400  | Bad Request  |
-| 401  | Unauthorized |
-| 404  | Not Found    |
-| 500  | Server Error |
+HTTP status codes inform the client about the outcome of a request. They are divided into several categories:
+
+**1xx** - Informational responses
+**2xx** - Successful responses
+**3xx** - Redirection messages
+**4xx** - Client errors
+**5xx** - Server errors
+
+| Code | Meaning      | Descripton |
+|------|--------------|------------|
+| 100  | Continue     | Indicates that the initial part of the request has been received successfully.|
+| 101  | Switching Protocols    | Indicates that the initial part of the request has been received successfully.|
+| 200  | OK           | The request completed successfully.|
+| 201  | Created      | A new resource has been successfully created.|
+| 202  | Accepted     | The request has been accepted for processing but is not yet complete.|
+| 204  | No Content   | The request succeeded, but there is no response body.| 
+| 301  | Moved Permanently   | The requested resource has premanently moved to another URL.| 
+| 302  | Found   | Temporary redirect to another location.| 
+| 304  | Not Modified | Cached version is still valid.| 
+| 400  | Bad Request  | The client sent invalid or malformed data.| 
+| 401  | Unauthorized | Authentication is required or the credentials are invalid.| 
+| 404  | Not Found    | The requested resource does not exist.|
+| 405  | Method Not Allowed  | The HTTP method is not supported for the requested resource.| 
+| 409  | Conflict  | The request conflicts with the current state of the resource.| 
+| 422  | Unprocessable Content    | The request format is correct, but the data fails validation. |
+| 429  | Too Many Requests   | The client exceeded the allowed request limit.| 
+| 500  | Internal Server Error | An unexpected server-side error occurred.|
+| 501  | Not Implemented |The server does not support the requested functionality.| 
+| 502  | Bad Gateway | An upstream server returned an invalid response.| 
+| 503  | Service Unavailable | The server is temporarily unavailable.|
+| 504  | Gateway Timeout | The upstream server took too long to respond.| 
 
 ---
 
