@@ -72,12 +72,10 @@ A REST API:
 A REST API for users might look like:
 
 ```
-
-GET    /api/users
-GET    /api/users/1
-POST   /api/users
-PUT    /api/users/1
-DELETE /api/users/1
+GET    /users
+POST   /color
+PUT    /users
+DELETE /users
 
 ````
 
@@ -85,7 +83,8 @@ Each URL represents a **resource**.
 
 ---
 
-## REST API Response Example (JSON)
+## REST API Response Example (JSON or Plain Text)
+Content-Type: application/json
 
 ```json
 {
@@ -93,6 +92,11 @@ Each URL represents a **resource**.
   "name": "John Doe",
   "email": "john@example.com"
 }
+````
+Content-Type: text/plain
+
+```text
+red
 ````
 
 ---
@@ -127,18 +131,16 @@ fetch("https://api.example.com/users")
 ### Example: POST request
 
 ```js
-fetch("https://api.example.com/users", {
+fetch("/users", {
   method: "POST",
   headers: {
     "Content-Type": "application/json"
   },
   body: JSON.stringify({
-    name: "Alice",
-    email: "alice@example.com"
+    name: "Larysa",
+    email: "larysa@example.com"
   })
-})
-.then(res => res.json())
-.then(data => console.log(data));
+});
 ```
 
 ---
@@ -174,11 +176,11 @@ app.listen(3000, () => {
 ```js
 let users = [];
 
-app.get("/api/users", (req, res) => {
+app.get("/users", (req, res) => {
   res.json(users);
 });
 
-app.post("/api/users", (req, res) => {
+app.post("/users", (req, res) => {
   const user = req.body;
   users.push(user);
   res.status(201).json(user);
