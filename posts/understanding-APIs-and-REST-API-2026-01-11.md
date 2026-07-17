@@ -1,8 +1,8 @@
 
-# Understanding APIs and REST API
+# Understanding APIs / REST API / Web API
 2026-01-11
 
-**Tags:**  `REST API` `API` `Web API` `Node.js` `Express.js` `Fetch API` `Fetch API` `REST Architecture` `HTTP Methods` `Client-Server Architecture` `HTTP` `JSON`      
+**Tags:**  `REST API` `API` `Web API` `Node.js` `Express.js` `Fetch API` `Fetch API` `REST Architecture` `HTTP Methods` `Client-Server Architecture` `HTTP` `JSON`  `axios`     
 
 ## Introduction
 
@@ -71,12 +71,11 @@ A REST API:
 
 A REST API for users might look like:
 
-```
+````
 GET    /users
 POST   /color
 PUT    /users
 DELETE /users
-
 ````
 
 Each URL represents a **resource**.
@@ -98,7 +97,6 @@ Content-Type: text/plain
 ```text
 red
 ````
-
 ---
 
 ## REST API Principles
@@ -141,6 +139,47 @@ fetch("/users", {
     email: "larysa@example.com"
   })
 });
+```
+
+### Using  axios
+
+Advantages of Axios:
+- **Automatic JOSN parsing** - no need to call `response.json()`. The response data is available directly in `response.data`.
+- **Better error handling** - Axios automatically throws an error for HTTP `4xx` and `5xx` responses.
+- **Interceptors** - automatically add headers (e.g. a JWT token) to every request or handle all responses and errors in one place.
+- **Timeout support** - easily set a maximum waiting time for a server response. Axios automatically aborts the request if the timeout is exceeded.
+- **Cleaner syntax** - code is usually shorter nad easiter to read than with `fetch`.
+
+#### POST
+
+```js
+  axios
+      .post("/color", {
+       colorType: chatBackgroundColor,
+      })
+      .then(() => {
+        console.log(success)
+      })
+      .catch((err) => {
+        console.error("error", err.message);
+      });
+```
+
+#### GET
+
+```js
+axios
+  .get("/color", {
+    params: {
+        background: #fff,
+    }
+  })
+  .then((response) => {
+    console.log(response.data);
+  })
+  .catch((err) => {
+    console.error("error", err.message);
+  });
 ```
 
 ---
@@ -251,15 +290,10 @@ REST APIs remain the foundation of modern web applications. They are simple, sca
 
 ##  Sources
 
+[axios](https://github.com/axios/axios?tab=readme-ov-file)
+
 [amazon](https://aws.amazon.com/what-is/api/)
 
 [redhat](https://www.redhat.com/en/topics/api/what-is-a-rest-api)
 
 [postman](https://blog.postman.com/rest-api-examples/)
-
-
-
-
-
-
-
