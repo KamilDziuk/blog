@@ -292,6 +292,19 @@ HTTP status codes inform the client about the outcome of a request. They are div
 
 REST APIs remain the foundation of modern web applications. They are simple, scalable, and widely supported. Mastering REST APIs and JavaScript integration is a must-have skill for every web developer.
 
+
+## What Is a Web API?
+
+A **Web API** is an API that is accessed over the internet using the HTTP protocol.
+
+It's a broader, umbrella term - REST, SOAP, and GraphQL are all *types* of Web APIs, each with different rules for how requests and responses are structured.
+
+Not every API is a Web API. For example:
+- A **library API** (e.g. a JavaScript array's `.map()` method) runs locally in your code - no network involved.
+- An **operating system API** lets applications talk to the OS (e.g. file system access) - also no HTTP.
+
+This article focuses on **REST**, the most common type of Web API used today.
+
 ##  Sources
 
 [axios](https://github.com/axios/axios?tab=readme-ov-file)
