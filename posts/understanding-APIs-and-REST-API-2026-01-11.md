@@ -2,7 +2,7 @@
 # Understanding APIs / REST API / Web API
 2026-01-11
 
-**Tags:**  `REST API` `API` `Web API` `Node.js` `Express.js` `Fetch API` `Fetch API` `REST Architecture` `HTTP Methods` `Client-Server Architecture` `HTTP` `JSON`  `axios`     
+**Tags:**  `REST API` `API` `Web API` `Node.js` `Express.js`  `Fetch API` `REST Architecture` `HTTP Methods` `Client-Server Architecture` `HTTP` `JSON`  `axios`     
 
 ## Introduction
 
@@ -72,10 +72,14 @@ A REST API:
 A REST API for users might look like:
 
 ````
-GET    /users
-POST   /color
-PUT    /users
-DELETE /users
+GET    /users        - list all users
+POST   /users         - create a user
+
+GET    /color         - get current color setting
+POST   /color         - set/update color setting
+
+PUT    /users/:id     - update a user
+DELETE /users/:id     - delete a user
 ````
 
 Each URL represents a **resource**.
@@ -85,7 +89,7 @@ Each URL represents a **resource**.
 ## REST API Response Example (JSON or Plain Text)
 Content-Type: application/json
 
-```json
+````json
 {
   "id": 1,
   "name": "John Doe",
@@ -94,7 +98,7 @@ Content-Type: application/json
 ````
 Content-Type: text/plain
 
-```text
+````text
 red
 ````
 ---
@@ -144,11 +148,11 @@ fetch("/users", {
 ### Using  axios
 
 Advantages of Axios:
-- **Automatic JOSN parsing** - no need to call `response.json()`. The response data is available directly in `response.data`.
+- **Automatic JSON parsing** - no need to call `response.json()`. The response data is available directly in `response.data`.
 - **Better error handling** - Axios automatically throws an error for HTTP `4xx` and `5xx` responses.
 - **Interceptors** - automatically add headers (e.g. a JWT token) to every request or handle all responses and errors in one place.
 - **Timeout support** - easily set a maximum waiting time for a server response. Axios automatically aborts the request if the timeout is exceeded.
-- **Cleaner syntax** - code is usually shorter nad easiter to read than with `fetch`.
+- **Cleaner syntax** - code is usually shorter and easier to read than with `fetch`.
 
 #### POST
 
@@ -158,7 +162,7 @@ Advantages of Axios:
        colorType: chatBackgroundColor,
       })
       .then(() => {
-        console.log(success)
+        console.log("success")
       })
       .catch((err) => {
         console.error("error", err.message);
@@ -171,7 +175,7 @@ Advantages of Axios:
 axios
   .get("/color", {
     params: {
-        background: #fff,
+        background: "#fff",
     }
   })
   .then((response) => {
@@ -238,7 +242,7 @@ HTTP status codes inform the client about the outcome of a request. They are div
 **4xx** - Client errors
 **5xx** - Server errors
 
-| Code | Meaning      | Descripton |
+| Code | Meaning      | Description |
 |------|--------------|------------|
 | 100  | Continue     | Indicates that the initial part of the request has been received successfully.|
 | 101  | Switching Protocols    | Indicates that the initial part of the request has been received successfully.|
@@ -246,7 +250,7 @@ HTTP status codes inform the client about the outcome of a request. They are div
 | 201  | Created      | A new resource has been successfully created.|
 | 202  | Accepted     | The request has been accepted for processing but is not yet complete.|
 | 204  | No Content   | The request succeeded, but there is no response body.| 
-| 301  | Moved Permanently   | The requested resource has premanently moved to another URL.| 
+| 301  | Moved Permanently   | The requested resource has permanently moved to another URL.| 
 | 302  | Found   | Temporary redirect to another location.| 
 | 304  | Not Modified | Cached version is still valid.| 
 | 400  | Bad Request  | The client sent invalid or malformed data.| 
