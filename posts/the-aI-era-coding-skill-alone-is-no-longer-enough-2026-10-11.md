@@ -40,7 +40,3 @@ As more code gets written with AI's help, reviewing it becomes a core skill rath
 * Build a real understanding of the business you work in — it directly improves the quality of your technical decisions
 * Treat code review as a learning opportunity, not a box to check
 * Practice explaining technical decisions to non-technical people — it's a skill AI won't teach you
-
-
-
-[BNR News – Anthropic in Sofia: "Developers' soft skills are increasingly important"](https://bnrnews.bg/en/post/463316/anthropic-in-sofia-developers-soft-skills-are-increasingly-important)
